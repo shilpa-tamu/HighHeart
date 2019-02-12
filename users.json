@@ -1,0 +1,19 @@
+{
+  "users" : [ 
+     {"name": "Shilpa Subramanian",
+       "age" : 27,
+       "email" : "shilu1591@gmail.com"
+     },
+     {"name":"Swati Awasthi",
+       "age" : 27,
+       "email" : "awasthi.swati700@gmail.com"
+     },
+     {"name":"Poonam Tare",
+       "age" : 27,
+       "email" : "poonam.tare@tamu.edu"
+     },
+     { "name":"Valliappan Pethaperumal",
+       "age" : 27,
+       "email" : "valliappan@tamu.edu"
+     }]
+}
