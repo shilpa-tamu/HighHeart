@@ -1,11 +1,11 @@
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDhvhsndS8-hpLtTX1QXrY-GWOqYRYbpws",
+    apiKey: "protected",
     authDomain: "highheart-2e3e8.firebaseapp.com",
     databaseURL: "https://highheart-2e3e8.firebaseio.com",
-    projectId: "highheart-2e3e8",
+    projectId: "protected",
     storageBucket: "highheart-2e3e8.appspot.com",
-    messagingSenderId: "123767894835"
+    messagingSenderId: "protected"
   };
   firebase.initializeApp(config);
 
