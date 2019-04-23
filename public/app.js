@@ -1,4 +1,5 @@
-  // Initialize Firebase
+ 
+// Initialize Firebase
   var config = {
     apiKey: "AIzaSyDhvhsndS8-hpLtTX1QXrY-GWOqYRYbpws",
     authDomain: "highheart-2e3e8.firebaseapp.com",
@@ -9,33 +10,19 @@
   };
   firebase.initializeApp(config);
 
-  const dbRef = firebase.database().ref();
-  const usersRef = dbRef.child('users');
-  
-  const userListUI = document.getElementById("userList");
-
-usersRef.on("child_added", snap => {
-   let user = snap.val();
-   let $li = document.createElement("li");
-   $li.innerHTML = user.name;
-   $li.setAttribute("child-key", snap.key); 
-   $li.addEventListener("click", userClicked)
-   userListUI.append($li);
-});
-
-function userClicked(e) {
-
-  var userID = e.target.getAttribute("child-key");
-
-  const userRef = dbRef.child('users/' + userID);
-
-  const userDetailUI = document.getElementById("userDetail");
-  userDetailUI.innerHTML = ""
-
-  userRef.on("child_added", snap => {
-    var $p = document.createElement("p");
-    $p.innerHTML = snap.key + " - " + snap.val()
-    userDetailUI.append($p);
-  });
-
+function getData(){
+  const dbRef = firebase.database().ref('users');
+    $("#outputDiv").html('');
+    $("#outputDiv").append("<table id='userTable' border='1' width='100%'></table>");
+    $("#userTable").html('');
+	$("#userTable").append("<tr><th>Name</th><th>Email</th></tr>");
+    dbRef.on('value', function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+          var item = childSnapshot.val();
+		  var uid = childSnapshot.val().userID;
+          var name = childSnapshot.val().name;
+		  var email = childSnapshot.val().email;
+          $("#userTable").append("<tr><td align='left'>" + name + "</td><td align='left'>" + email + "</td></tr>");
+      });
+    });
 }
